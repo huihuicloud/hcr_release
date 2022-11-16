@@ -2,7 +2,7 @@
 
 git add -A 
 git commit -m "maj"
-git push origin master
+git push origin master --force
 
 # if [ -n "$1" ]
 # then

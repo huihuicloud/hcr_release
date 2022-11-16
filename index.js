@@ -2,8 +2,8 @@ const { app, BrowserWindow } = require('electron');
 
 function createWindow() {
     const win = new BrowserWindow({
-        height: 200,
-        width: 600,
+        height: 440,
+        width: 753,
         webPreferences: {
             nodeIntegration: true,
             enableRemoteModule: true
@@ -11,10 +11,9 @@ function createWindow() {
         frame: false,
         maximizable: false,
         minimizable: false,
-        title: 'Update Test',
+        title: 'HCR',
     });
-
-    win.setTitle('Update Test');
+    win.setTitle('HCR');
     win.loadFile('src/html/index.html');
 }
 

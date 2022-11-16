@@ -1,0 +1,43 @@
+{
+  "productName": "hcr",
+  "directories": {
+    "output": "release/"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!.github",
+    "!.vscode",
+    "!.code-workspace",
+    "!.npmrc",
+    "!*.md",
+    "!package.json",
+    "!package-lock.json",
+    "!src/",
+    "!e2e/",
+    "!hooks/",
+    "!_config.yml",
+    "!angular.json",
+    "!tsconfig*.json",
+    "!tslint.json",
+    "!.eslintrc.json",
+    "!karma.conf.js",
+    "!angular.webpack.js",
+    "!*.map"
+  ],
+  "win": {
+    "icon": "src/assets/icons",
+    "target": ["portable"]
+  },
+  "portable": {
+    "splashImage": "src/assets/icons/electron.bmp"
+  },
+  "mac": {
+    "icon": "src/assets/icons",
+    "target": ["dmg"]
+  },
+  "linux": {
+    "icon": "src/assets/icons",
+    "target": ["AppImage"]
+  }
+}

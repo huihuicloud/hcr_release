@@ -3,18 +3,20 @@ const uaup = require('uaup-js');
 
 //This is Optional
 const defaultStages = {
-    Checking: "Checking...", // When Checking For Updates.
-    Found: "Update Found!",  // If an Update is Found.
-    NotFound: "No Update Found.", // If an Update is Not Found.
-    Downloading: "Downloading...", // When Downloading Update.
-    Unzipping: "Installing...", // When Unzipping the Archive into the Application Directory.
-    Cleaning: "Finalizing...", // When Removing Temp Directories and Files (ex: update archive and tmp directory).
-    Launch: "Launching..." // When Launching the Application.
+    Checking: "Initialisation", // When Checking For Updates.
+    Found: "Mise a jour disponible",  // If an Update is Found.
+    NotFound: "Logiciel est a jour", // If an Update is Not Found.
+    Downloading: "En cours de telechargement", // When Downloading Update.
+    Unzipping: "En cours d'installation", // When Unzipping the Archive into the Application Directory.
+    Cleaning: "Optimisation", // When Removing Temp Directories and Files (ex: update archive and tmp directory).
+    Launch: "Demarrage" // When Launching the Application.
 };
 
 const updateOptions = {
-    gitRepo: "huihuicloud", // [Required] Your Repo Name
-    gitUsername: "hcr_release",  // [Required] Your GitHub Username.
+    gitUsername: "huihuicloud",  // [Required] Your GitHub Username.
+    gitRepo: "hcr_release", // [Required] Your Repo Name
+    isGitRepoPrivate: true,  // {Default is false} [Optional] If the Repo is Private or Public  (Currently not Supported).
+    gitRepoToken: "abc123",  // {Default is null} [Optional] The Token from GitHub to Access a Private Repo.  Only for Private Repos.
 
     appName: "hcr", //[Required] The Name of the app archive and the app folder.
     appExecutableName: "hcr.exe", //[Required] The Executable of the Application to be Run after updating.

@@ -1,6 +1,5 @@
 const uaup = require('uaup-js');
 
-
 //This is Optional
 const defaultStages = {
     Checking: "Initialisation", // When Checking For Updates.

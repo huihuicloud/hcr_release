@@ -29,6 +29,9 @@
     "icon": "dist/hcr_release/assets/icons",
     "target": ["portable"]
   },
+  "portable": {
+    "splashImage": "dist/hcr/assets/icons/electron.bmp"
+  },
   "mac": {
     "icon": "dist/hcr_release/assets/icons",
     "target": ["dmg"]

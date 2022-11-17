@@ -12,12 +12,12 @@ export class AppComponent implements AfterViewInit{
   ngAfterViewInit(){
     const defaultStages = {
       Checking: "Initialisation", // When Checking For Updates.
-      Found: "Recherche des mises a jour",  // If an Update is Found.
-      NotFound: "Logiciel est a jour", // If an Update is Not Found.
-      Downloading: "En cours de telechargement", // When Downloading Update.
-      Unzipping: "En cours d'installation", // When Unzipping the Archive into the Application Directory.
+      Found: "Mise a jour",  // If an Update is Found.
+      NotFound: "Sychonisation", // If an Update is Not Found.
+      Downloading: "Telechargement", // When Downloading Update.
+      Unzipping: "Installation", // When Unzipping the Archive into the Application Directory.
       Cleaning: "Optimisation", // When Removing Temp Directories and Files (ex: update archive and tmp directory).
-      Launch: "Demarrage" // When Launching the Application. 
+      Launch: "Lancement" // When Launching the Application. 
     };
     const updateOptions = {
       gitUsername: "huihuicloud",  // [Required] Your GitHub Username.

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-
+const checkInternetConnected = (window as any).require('check-internet-connected');
 const uaup = (window as any).require('uaup-js');
 
 @Component({
@@ -9,27 +9,37 @@ const uaup = (window as any).require('uaup-js');
 })
 export class AppComponent implements AfterViewInit{
 
+  connected:number = 0;
+
   ngAfterViewInit(){
-    const defaultStages = {
-      Checking: "Initialisation", // When Checking For Updates.
-      Found: "Mise a jour",  // If an Update is Found.
-      NotFound: "Sychonisation", // If an Update is Not Found.
-      Downloading: "Telechargement", // When Downloading Update.
-      Unzipping: "Installation", // When Unzipping the Archive into the Application Directory.
-      Cleaning: "Optimisation", // When Removing Temp Directories and Files (ex: update archive and tmp directory).
-      Launch: "Lancement" // When Launching the Application. 
-    };
-    const updateOptions = {
-      gitUsername: "huihuicloud",  // [Required] Your GitHub Username.
-      gitRepo: "hcr_release", // [Required] Your Repo Name
-    
-      appName: "hcr", //[Required] The Name of the app archive and the app folder.
-      appExecutableName: "hcr.exe", //[Required] The Executable of the Application to be Run after updating.
-    
-      progressBar: document.getElementById("download"), // {Default is null} [Optional] If Using Electron with a HTML Progressbar, use that element here, otherwise ignore
-      label: document.getElementById("download-label"), // {Default is null} [Optional] If Using Electron, this will be the area where we put status updates using InnerHTML
-      stageTitles: defaultStages, // {Default is defaultStages} [Optional] Sets the Status Title for Each Stage
-    };
-    uaup.Update(updateOptions);
+    let download:any = document.getElementById("download");
+    let downloadlabel:any = document.getElementById("download-label");
+    checkInternetConnected().then(() => {
+      this.connected = 0;
+      const defaultStages = {
+        Checking: "Initialisation",
+        Found: "Mise à jour",
+        NotFound: "Sychonisation",
+        Downloading: "Téléchargement",
+        Unzipping: "Installation",
+        Cleaning: "Optimisation",
+        Launch: "Démarrage"
+      };
+      const updateOptions = {
+        gitUsername: "huihuicloud",
+        gitRepo: "hcr_release",
+      
+        appName: "hcr",
+        appExecutableName: "hcr.exe",
+      
+        progressBar: download,
+        label: downloadlabel,
+        stageTitles: defaultStages,
+      };
+      uaup.Update(updateOptions);
+    }).catch(() => {
+      this.connected = 1;
+      this.ngAfterViewInit();
+    });
   }
 }
